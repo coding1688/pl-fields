@@ -11,12 +11,18 @@ class FieldsServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/fields.php', 'pl.fields');
 
-        $this->app->singleton(OptionSourceRegistry::class, fn (): OptionSourceRegistry => new OptionSourceRegistry($this->locales()));
+        // Hosts may register their own registry with extra sources; only
+        // provide a working default when nothing is bound yet.
+        if (! $this->app->bound(OptionSourceRegistry::class)) {
+            $this->app->singleton(OptionSourceRegistry::class, fn (): OptionSourceRegistry => new OptionSourceRegistry($this->locales()));
+        }
 
-        $this->app->singleton(FieldRegistry::class, fn ($app): FieldRegistry => new FieldRegistry(
-            $this->locales(),
-            $app->make(OptionSourceRegistry::class),
-        ));
+        if (! $this->app->bound(FieldRegistry::class)) {
+            $this->app->singleton(FieldRegistry::class, fn ($app): FieldRegistry => new FieldRegistry(
+                $this->locales(),
+                $app->make(OptionSourceRegistry::class),
+            ));
+        }
     }
 
     /** @return list<string> */
