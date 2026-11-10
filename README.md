@@ -104,4 +104,4 @@ $this->app->resolved(FieldRegistry::class, function (FieldRegistry $registry): v
 
 - [pl-files](https://github.com/coding1688/pl-files)：上传、引用追踪、多磁盘存储、多云复制
 - pl-fields（本包）
-- [pl-helpers](https://github.com/coding1688/pl-helpers)：JSON 响应与分页信封
+- [pl-debug](https://github.com/coding1688/pl-debug)：请求级 SQL 性能分析与工具栏
