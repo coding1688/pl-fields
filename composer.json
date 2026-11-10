@@ -1,0 +1,45 @@
+{
+    "name": "coding1688/pl-fields",
+    "description": "Laravel field registry: typed field definitions, validators and option sources shared by the pl-* packages.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "fields", "form", "options", "validation"],
+    "authors": [
+        { "name": "coding1688" }
+    ],
+    "homepage": "https://github.com/coding1688/pl-fields",
+    "support": {
+        "issues": "https://github.com/coding1688/pl-fields/issues",
+        "source": "https://github.com/coding1688/pl-fields"
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/container": "^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^10.5|^11.0|^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Coding1688\\Fields\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Coding1688\\Fields\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Coding1688\\Fields\\FieldsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
