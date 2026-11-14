@@ -18,7 +18,7 @@ final class OptionSourceRegistry
     private array $sources = [];
 
     /** @param list<string> $locales */
-    public function __construct(private readonly array $locales = ['en'], private readonly int $maxOptions = 10000)
+    public function __construct(private readonly array $locales = ['en', 'zh_CN', 'zh_TW', 'ja', 'ko'], private readonly int $maxOptions = 10000)
     {
         if (! in_array('en', $locales, true)) {
             throw new InvalidArgumentException('Option sources require English as their canonical locale.');

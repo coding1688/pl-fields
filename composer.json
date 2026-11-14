@@ -3,11 +3,20 @@
     "description": "Laravel field registry: typed field definitions, validators and option sources shared by the pl-* packages.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["laravel", "fields", "form", "options", "validation"],
-    "authors": [
-        { "name": "coding1688" }
+    "keywords": [
+        "laravel",
+        "fields",
+        "form",
+        "options",
+        "validation"
     ],
-    "homepage": "https://github.com/coding1688/pl-fields",
+    "authors": [
+        {
+            "name": "coding1688",
+            "homepage": "https://moonsea.dev"
+        }
+    ],
+    "homepage": "https://moonsea.dev",
     "support": {
         "issues": "https://github.com/coding1688/pl-fields/issues",
         "source": "https://github.com/coding1688/pl-fields"
@@ -41,5 +50,8 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }

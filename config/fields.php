@@ -1,9 +1,3 @@
 <?php
 
-return [
-    /*
-    | Locales used by localized field types and option labels. Null falls back
-    | to the host's platform.locales when present, otherwise to ['en'].
-    */
-    'locales' => null,
-];
+return ['locales' => ['en', 'zh_CN', 'zh_TW', 'ja', 'ko']];

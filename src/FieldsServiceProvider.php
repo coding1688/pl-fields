@@ -9,7 +9,8 @@ class FieldsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/fields.php', 'pl.fields');
+        $defaults = require __DIR__.'/../config/fields.php';
+        config(['fields' => $this->merge($this->merge($defaults, (array) config('pl.fields', [])), (array) config('fields', []))]);
 
         // Hosts may register their own registry with extra sources; only
         // provide a working default when nothing is bound yet.
@@ -25,17 +26,34 @@ class FieldsServiceProvider extends ServiceProvider
         }
     }
 
+    public function boot(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([__DIR__.'/../config/fields.php' => config_path('fields.php')], 'fields-config');
+        }
+    }
+
     /** @return list<string> */
     private function locales(): array
     {
-        $configured = config('pl.fields.locales');
+        $configured = config('fields.locales');
 
         if (is_array($configured) && $configured !== []) {
             return array_values(array_map('strval', $configured));
         }
 
-        $platform = config('platform.locales');
+        return ['en', 'zh_CN', 'zh_TW', 'ja', 'ko'];
+    }
 
-        return is_array($platform) && $platform !== [] ? array_values(array_keys($platform)) : ['en'];
+    private function merge(array $defaults, array $overrides): array
+    {
+        foreach ($overrides as $key => $value) {
+            $current = $defaults[$key] ?? null;
+            $defaults[$key] = is_array($value) && is_array($current) && ! array_is_list($value) && ! array_is_list($current)
+                ? $this->merge($current, $value)
+                : $value;
+        }
+
+        return $defaults;
     }
 }

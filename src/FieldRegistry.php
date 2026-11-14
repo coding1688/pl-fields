@@ -19,7 +19,7 @@ final class FieldRegistry
     private array $fields = [];
 
     /** @param list<string> $locales */
-    public function __construct(array $locales = ['en'], private readonly OptionSourceRegistry $optionSources = new OptionSourceRegistry)
+    public function __construct(array $locales = ['en', 'zh_CN', 'zh_TW', 'ja', 'ko'], private readonly OptionSourceRegistry $optionSources = new OptionSourceRegistry)
     {
         $fields = [new TextField, new LocalizedTextField($locales), new NumberField, new CheckboxField, new RadioField, new SwitchField, new SelectField];
         foreach ($fields as $field) {

@@ -9,7 +9,7 @@ final class LocalizedTextValidator implements FieldValueValidator
     public function validate(array $value, array $options = [], array $validation = []): bool
     {
         $translations = $value['value_i18n'] ?? null;
-        $supported = $validation['supported_locales'] ?? ['en'];
+        $supported = $validation['supported_locales'] ?? ['en', 'zh_CN', 'zh_TW', 'ja', 'ko'];
         $required = $validation['required_locales'] ?? ['en'];
         if (! is_array($translations) || array_diff(array_keys($translations), $supported) !== []) {
             return false;
@@ -37,7 +37,7 @@ final class LocalizedTextValidator implements FieldValueValidator
 
     public function filter(array $value, array $options = [], array $validation = []): array
     {
-        $supported = $validation['supported_locales'] ?? ['en'];
+        $supported = $validation['supported_locales'] ?? ['en', 'zh_CN', 'zh_TW', 'ja', 'ko'];
         $translations = array_intersect_key($value['value_i18n'] ?? [], array_flip($supported));
 
         return ['value_i18n' => array_map(fn ($translation): string => trim((string) $translation), $translations)];

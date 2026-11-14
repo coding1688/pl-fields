@@ -13,6 +13,9 @@ final class NumberValidator implements FieldValueValidator
             return false;
         }
         $number = (float) $number;
+        if (! is_finite($number)) {
+            return false;
+        }
         $precision = $validation['precision'] ?? 6;
         if (($validation['min_value'] ?? null) !== null && $number < $validation['min_value']) {
             return false;

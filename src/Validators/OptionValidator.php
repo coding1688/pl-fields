@@ -16,6 +16,11 @@ final class OptionValidator implements FieldValueValidator
         $selected = $this->multiple
             ? $value['value_json']
             : array_filter([$value['value_string'] ?? null], fn ($item): bool => $item !== null && $item !== '');
+        foreach ($selected as $item) {
+            if (! is_string($item) && ! is_int($item)) {
+                return false;
+            }
+        }
         if ($this->multiple && $selected === []) {
             return ($validation['min_selected'] ?? 0) === 0 && ($validation['max_selected'] ?? 64) >= 0;
         }

@@ -9,7 +9,7 @@ use Coding1688\Fields\Validators\LocalizedTextValidator;
 final class LocalizedTextField implements FieldType
 {
     /** @param list<string> $locales */
-    public function __construct(private readonly array $locales = ['en']) {}
+    public function __construct(private readonly array $locales = ['en', 'zh_CN', 'zh_TW', 'ja', 'ko']) {}
 
     public function key(): string
     {
@@ -47,7 +47,7 @@ final class LocalizedTextField implements FieldType
             ['key' => 'min_length', 'type' => 'integer', 'default' => 0, 'min' => 0, 'max' => 65536],
             ['key' => 'max_length', 'type' => 'integer', 'default' => 512, 'min' => 1, 'max' => 65536],
             ['key' => 'supported_locales', 'type' => 'locales', 'default' => $this->locales, 'options' => $this->locales],
-            ['key' => 'required_locales', 'type' => 'locales', 'default' => ['en'], 'options' => $this->locales],
+            ['key' => 'required_locales', 'type' => 'locales', 'default' => in_array('en', $this->locales, true) ? ['en'] : array_slice($this->locales, 0, 1), 'options' => $this->locales],
         ];
     }
 
