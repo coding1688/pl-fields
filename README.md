@@ -6,6 +6,10 @@ Typed field definitions, value validation and configurable option sources for La
 
 [Moonsea](https://moonsea.dev) · [Source](https://github.com/coding1688/pl-fields) · [Issues](https://github.com/coding1688/pl-fields/issues) · [Getting started](GETTING_STARTED.md)
 
+## Version 0.5.0 baseline
+
+The three Moonsea packages restart at `v0.5.0`. Earlier tags and GitHub Releases have been removed; commit history remains. Update Composer version constraints and lock files explicitly. This is a new version baseline, not an automatic upgrade from the removed releases.
+
 ## Scope
 
 The package provides a field registry, validation metadata, value validators and manual/constant/database option sources. It does not provide database tables, HTTP routes, a form renderer or authorization rules.

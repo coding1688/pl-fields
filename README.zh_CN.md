@@ -4,6 +4,10 @@
 
 [Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-fields)
 
+## 0.5.0 版本基线
+
+三个 Moonsea 包统一从 `v0.5.0` 重新开始。原标签和 GitHub Releases 已清理，提交历史保留。请显式更新 Composer 版本约束和锁文件。这是新的版本基线，不是从已移除版本自动升级。
+
 ## 功能范围
 
 为 Laravel 提供类型化字段定义、值校验及可配置选项来源，包括字段注册表、校验元数据、值校验器，以及手动、常量和数据库选项来源。不提供数据库表、HTTP 路由、表单渲染器或授权规则。

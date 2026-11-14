@@ -4,6 +4,10 @@
 
 [Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-fields)
 
+## 0.5.0 版本基準
+
+三個 Moonsea 套件統一從 `v0.5.0` 重新開始。原標籤及 GitHub Releases 已清理，提交歷史保留。請明確更新 Composer 版本限制及鎖定檔。這是新的版本基準，不是從已移除版本自動升級。
+
 ## 功能範圍
 
 為 Laravel 提供具型別的欄位定義、值驗證及可設定的選項來源，包含欄位註冊表、驗證中繼資料、值驗證器，以及手動、常數和資料庫選項來源。不提供資料表、HTTP 路由、表單呈現器或授權規則。
