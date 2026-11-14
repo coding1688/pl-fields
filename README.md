@@ -1,5 +1,7 @@
 # pl-fields
 
+[English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
 Typed field definitions, value validation and configurable option sources for Laravel.
 
 [Moonsea](https://moonsea.dev) · [Source](https://github.com/coding1688/pl-fields) · [Issues](https://github.com/coding1688/pl-fields/issues) · [Getting started](GETTING_STARTED.md)
